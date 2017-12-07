@@ -13,8 +13,11 @@ public class Person {
     private String id;
 
     private String name;
+
     private String idCard;
+
     private String phone;
+
     private String address;
 
 

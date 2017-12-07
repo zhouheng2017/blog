@@ -13,8 +13,7 @@ import svsh.entity.Person;
 @Repository
 public class PersonDAO {
 
-	@Resource
-	private SessionFactory sessionFactory;
+	@Resource private SessionFactory sessionFactory;
 
 	private Session getSession() {
 		return sessionFactory.getCurrentSession();
@@ -24,7 +23,10 @@ public class PersonDAO {
 	 * @param id
 	 * @return
 	 */
-	public Person getPersonById(String id) {
+
+
+
+    public Person getPersonById(String id) {
 		return (Person) this.getSession().createQuery("from Person where id=?").setParameter(0, id).uniqueResult();
 	}
 	/**
@@ -46,7 +48,8 @@ public class PersonDAO {
 	 * @param id
 	 */
 	public void deletePersonById(String id) {
-		this.getSession().createQuery("delete Person where id=?").setParameter(0, id).executeUpdate();
+		this.getSession().createQuery("delete Person where id = ?")
+                .setParameter(0, id).executeUpdate();
 	}
 	/**
 	 * 查询所有
