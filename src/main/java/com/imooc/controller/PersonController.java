@@ -8,12 +8,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 @RequestMapping(value = "/person")
 public class PersonController {
 
     @Autowired private PersonService personService;
+
+
+    @RequestMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    public String doLogin(String username, String password) {
+        if (Objects.equals(username, "admin") && Objects.equals(password, "admin")) {
+
+        }
+        return "";
+    }
 
     @RequestMapping(value = "/getPersons")
     @ResponseBody
